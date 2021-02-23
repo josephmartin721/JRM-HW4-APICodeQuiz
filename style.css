@@ -1,0 +1,21 @@
+.mainTitle {
+    margin-bottom: 25px;
+    border: 25px blueviolet;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 35px;
+}
+
+#quiz {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+}
+
+button {
+    margin-top: 35px;
+    margin-left: 4.5in;
+    border-color: blueviolet;
+    border-width: medium;
+}

@@ -19,7 +19,7 @@ function buildQuiz(){
           // ...add an HTML radio button
           answers.push(
             `<label>
-              <input type="radio" name="question${questionNumber}" value="${letter}">
+              <input type='radio' name='question${questionNumber}' value='${letter}'>
               ${letter} :
               ${currentQuestion.answers[letter]}
             </label>`
@@ -28,8 +28,8 @@ function buildQuiz(){
   
         // add this question and its answers to the output
         output.push(
-          `<div class="question"> ${currentQuestion.question} </div>
-          <div class="answers"> ${answers.join('')} </div>`
+          `<div class='question'> ${currentQuestion.question} </div>
+          <div class='answers'> ${answers.join('')} </div>`
         );
       }
     );
@@ -40,70 +40,101 @@ function buildQuiz(){
 
   function showResults(){
 
-    // gather answer containers from our quiz
     const answerContainers = quizContainer.querySelectorAll('.answers');
   
-    // keep track of user's answers
     let numCorrect = 0;
   
-    // for each question...
     myQuestions.forEach( (currentQuestion, questionNumber) => {
   
-      // find selected answer
       const answerContainer = answerContainers[questionNumber];
       const selector = `input[name=question${questionNumber}]:checked`;
       const userAnswer = (answerContainer.querySelector(selector) || {}).value;
   
-      // if answer is correct
       if(userAnswer === currentQuestion.correctAnswer){
-        // add to the number of correct answers
         numCorrect++;
   
-        // color the answers green
         answerContainers[questionNumber].style.color = 'lightgreen';
       }
-      // if answer is wrong or blank
       else{
-        // color the answers red
         answerContainers[questionNumber].style.color = 'red';
       }
     });
   
-    // show number of correct answers out of total
     resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
   }
+
+  function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+
+        display.textContent = minutes + ':' + seconds;
+
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
+}
+
+window.onload = function () {
+    var oneMinute = 60 * 1,
+        display = document.querySelector('#time');
+    startTimer(oneMinute, display);
+};
 
 const quizContainer = document.getElementById('quiz');
 const resultsContainer = document.getElementById('results');
 const submitButton = document.getElementById('submit');
 const myQuestions = [
     {
-      question: "What is JavaScript?",
+      question: 'What is JavaScript?',
       answers: {
-        a: "A caffinated beverage",
-        b: "A scripting language used for coding",
-        c: "A jittery reading of lines"
+        a: 'A caffinated beverage',
+        b: 'A scripting language used for coding',
+        c: 'A jittery reading of lines'
       },
-      correctAnswer: "b"
+      correctAnswer: 'b'
     },
     {
-      question: "What is an array in Javascript?",
+      question: 'What is an array in Javascript?',
       answers: {
-        a: "A single variable that is used to store multiple elements",
-        b: "A preassembled pile of script",
-        c: "A type of fish"
+        a: 'A single variable that is used to store multiple elements',
+        b: 'A preassembled pile of script',
+        c: 'A type of fish'
       },
-      correctAnswer: "a"
+      correctAnswer: 'a'
     },
     {
-      question: "Where is it appropriate to inserts a JavaScript?",
+      question: 'Where is it appropriate to insert a JavaScript?',
       answers: {
         a: 'The head section',
         b: 'The body section',
         c: 'At the very bottom of the code',
       },
-      correctAnswer: "a"
-    }
+      correctAnswer: 'a'
+    },
+    {
+      question: 'Are you enjoying the quiz?',
+      answers: {
+          a: 'Yes',
+          b: 'A little bit',
+          c: 'No',
+      },
+      correctAnswer: 'a'
+    },
+    {
+        question: 'What is a boolean?',
+        answers: {
+            a: 'An angry person on one leg',
+            b: 'A theoretical function of aerodynamics',
+            c: 'An algebraic binary system used in computing',
+        },
+        correctAnswer: 'c'
+      },
   ];
 
 buildQuiz();

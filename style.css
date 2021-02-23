@@ -1,21 +1,29 @@
+body {background-color: rgb(52, 100, 233);}
+
 .mainTitle {
     margin-bottom: 25px;
-    border: 25px rgb(43, 101, 226);
+    border: 25px rgb(135, 27, 161);
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
     font-size: 35px;
+}
+
+#results {
+    margin-left: 9.60in;
+    font-size: larger;
+    font-weight: 750;
 }
 
 #quiz {
     font-family: 'Times New Roman', Times, serif;
     font-size: large;
     font-weight: bold;
-    text-align: left;
+    text-align: center;
 }
 
 button {
     margin-top: 35px;
-    margin-left: 4.5in;
-    border-color: rgb(43, 101, 226);
+    margin-left: 9.45in;
+    border-color: rgb(135, 27, 161);
     border-width: medium;
 }

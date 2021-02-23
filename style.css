@@ -1,6 +1,6 @@
 .mainTitle {
     margin-bottom: 25px;
-    border: 25px blueviolet;
+    border: 25px rgb(43, 101, 226);
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
     font-size: 35px;
@@ -10,12 +10,12 @@
     font-family: 'Times New Roman', Times, serif;
     font-size: large;
     font-weight: bold;
-    text-align: center;
+    text-align: left;
 }
 
 button {
     margin-top: 35px;
     margin-left: 4.5in;
-    border-color: blueviolet;
+    border-color: rgb(43, 101, 226);
     border-width: medium;
 }

@@ -38,7 +38,40 @@ function buildQuiz(){
     quizContainer.innerHTML = output.join('');
   }
 
-  function showResults(){}
+  function showResults(){
+
+    // gather answer containers from our quiz
+    const answerContainers = quizContainer.querySelectorAll('.answers');
+  
+    // keep track of user's answers
+    let numCorrect = 0;
+  
+    // for each question...
+    myQuestions.forEach( (currentQuestion, questionNumber) => {
+  
+      // find selected answer
+      const answerContainer = answerContainers[questionNumber];
+      const selector = `input[name=question${questionNumber}]:checked`;
+      const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+  
+      // if answer is correct
+      if(userAnswer === currentQuestion.correctAnswer){
+        // add to the number of correct answers
+        numCorrect++;
+  
+        // color the answers green
+        answerContainers[questionNumber].style.color = 'lightgreen';
+      }
+      // if answer is wrong or blank
+      else{
+        // color the answers red
+        answerContainers[questionNumber].style.color = 'red';
+      }
+    });
+  
+    // show number of correct answers out of total
+    resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+  }
 
 const quizContainer = document.getElementById('quiz');
 const resultsContainer = document.getElementById('results');
@@ -57,20 +90,19 @@ const myQuestions = [
       question: "What is an array in Javascript?",
       answers: {
         a: "A single variable that is used to store multiple elements",
-        b: "A series of variables linked to a singular element",
-        c: "A subspecies of underwater Mantas"
+        b: "A preassembled pile of script",
+        c: "A type of fish"
       },
       correctAnswer: "a"
     },
     {
-      question: "",
+      question: "Where is it appropriate to inserts a JavaScript?",
       answers: {
-        a: "Angular",
-        b: "jQuery",
-        c: "RequireJS",
-        d: "ESLint"
+        a: 'The head section',
+        b: 'The body section',
+        c: 'At the very bottom of the code',
       },
-      correctAnswer: "d"
+      correctAnswer: "a"
     }
   ];
 

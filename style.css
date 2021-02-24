@@ -2,7 +2,8 @@ body {background-color: rgb(52, 100, 233);}
 
 .mainTitle {
     margin-bottom: 25px;
-    border: 25px rgb(135, 27, 161);
+    border-bottom: 25px groove rgb(135, 27, 161);
+    border-top: 25px groove rgb(135, 27, 161);
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
     font-size: 35px;

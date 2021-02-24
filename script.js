@@ -81,6 +81,12 @@ window.onload = function () {
     startTimer(oneMinute, display);
 };
 
+window.setInterval('refresh()', 62000); 	
+    
+        function refresh() {
+            window .location.reload();
+        };
+
 const quizContainer = document.getElementById('quiz');
 const resultsContainer = document.getElementById('results');
 const submitButton = document.getElementById('submit');

@@ -1,4 +1,7 @@
-body {background-color: rgb(52, 100, 233);}
+body {
+    background-color: rgb(52, 100, 233);
+    text-size-adjust: 50px;
+}
 
 .mainTitle {
     margin-bottom: 25px;
@@ -22,7 +25,6 @@ body {background-color: rgb(52, 100, 233);}
     font-size: large;
     font-weight: bold;
     text-align: center;
-    text-size-adjust: 50px;
 }
 
 button {
@@ -50,6 +52,10 @@ form {
 }
 
 p {
+    border-bottom: 20px groove rgb(135, 27, 161);
+    border-top: 20px groove rgb(135, 27, 161);
     font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 25px;
+    font-weight: bolder;
     text-align: center;
 }
